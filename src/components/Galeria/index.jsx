@@ -21,30 +21,21 @@ const ImagensContainer = styled.section`
 `;
 
 
-const Galeria = ( {fotos = [], aoFotoSelecionada, aoAlternarFavorito } ) => {
+const Galeria = ({ fotos = [], setTag, aoFotoSelecionada, aoAlternarFavorito }) => {
     return (
         <>
-            <Tags/> 
+            <Tags setTag={setTag} />
             <GaleriaContainer>
                 <SecaoFluida>
-                    <Titulo> Navegue pela Galeria </Titulo> 
+                    <Titulo>Navegue pela galeria</Titulo>
                     <ImagensContainer>
-                        {fotos.map(foto =>
-                            <Imagem 
-                                aoZoomSolicitado={aoFotoSelecionada}
-                                aoAlternarFavorito={aoAlternarFavorito}
-                                key={foto.id} 
-                                foto={foto} 
-                            />
-                        )}
+                        {fotos.map(foto => <Imagem foto={foto} key={foto.id} aoZoomSolicitado={aoFotoSelecionada} aoAlternarFavorito={aoAlternarFavorito} />)}
                     </ImagensContainer>
                 </SecaoFluida>
-                <Populares/>
-
+                <Populares />
             </GaleriaContainer>
         </>
-
-    );
+    )
 }
 
-export default Galeria;
+export default Galeria
